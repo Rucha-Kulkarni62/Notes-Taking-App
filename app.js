@@ -78,16 +78,12 @@ const addNote = (text = "") =>{
 
 //self calling function: When a user refreshes a page the notes will still be there with saved data
 (
-  function(){
+  function() {
       const lsNotes = JSON.parse(localStorage.getItem("notes"));
-      if(lsNotes === null){
-        addNode()
-      }else{
-        lsNotes.forEach(
+      lsNotes.forEach(
           (lsNote) =>{
             addNote(lsNote);
           }
-        )
-      }       
+        )     
     }
 )()
